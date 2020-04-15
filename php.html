@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>GUIDE PHP</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+    </head>
+    <body class="vscode-light">
+        <h1 id="guide-php">GUIDE PHP</h1>
+<ul>
+<li><strong>Hypertext Preprocessor</strong></li>
+<li>Language principalement utilisé pour produire des pages web dynamiques via un server HTTP. C'est un language impératif orienté objet.</li>
+<li><strong>Typage</strong> : Dynamique / Faible<br></li>
+</ul>
+<p>Le typage dynamique consiste à laisser l'ordinateur réaliser cette opération de typage « à la volée », lors de l'exécution du code, contrairement à certains langages statiquement typés qui demandent au programmeur de déclarer expressément, pour chaque variable qu'il introduit dans son code, son typage.</p>
+<h2 id="syntaxe">Syntaxe</h2>
+<hr>
+<ul>
+<li>Bloque de code PHP :</li>
+</ul>
+<pre><code class="language-Php"><div><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-comment">//commandes</span>
+<span class="hljs-meta">?&gt;</span>
+</div></code></pre>
+<ul>
+<li>Variable en PHP :</li>
+</ul>
+<pre><code class="language-Php"><div><span class="hljs-meta">&lt;?php</span>
+
+$nomVariable = expression;
+
+<span class="hljs-meta">?&gt;</span>
+</div></code></pre>
+<ul>
+<li>Afficher la valeure d'une variable en chaîne de caractères</li>
+</ul>
+<pre><code class="language-Php"><div><span class="hljs-meta">&lt;?</span>= $nomVariable <span class="hljs-meta">?&gt;</span>
+</div></code></pre>
+<ul>
+<li>Les guillemets simples ( ' ' ) ne vont jamais interpeller les variables à l'intérieur. Ce qui est le cas des guillemets doubles ( &quot; &quot; ).</li>
+</ul>
+<h2 id="tableaux">Tableaux</h2>
+<hr>
+<ul>
+<li>Créer un tableau</li>
+</ul>
+<pre><code class="language-php"><div><span class="hljs-meta">&lt;?php</span>
+$nomVariable = [];
+<span class="hljs-meta">?&gt;</span>
+</div></code></pre>
+<ul>
+<li>Affecter des valeurs à un tableau</li>
+</ul>
+<pre><code class="language-php"><div><span class="hljs-meta">&lt;?php</span>
+$nomVariable = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-string">"Gloire à la Sainte Expression"</span>];
+<span class="hljs-meta">?&gt;</span>
+</div></code></pre>
+<ul>
+<li>Utiliser des clefs pour indexer</li>
+</ul>
+<pre><code class="language-php"><div><span class="hljs-meta">&lt;?php</span>
+$array_expression = [
+    <span class="hljs-string">"nomClef1"</span> =&gt; <span class="hljs-number">1</span>,
+    <span class="hljs-string">"nomClef2"</span> =&gt; <span class="hljs-string">"valeur"</span>
+];
+<span class="hljs-meta">?&gt;</span>
+</div></code></pre>
+<h2 id="structures-de-choix">Structures de choix</h2>
+<hr>
+<ul>
+<li>Opérateurs de comparaison <br></li>
+</ul>
+<pre><code class="language-PHP"><div>Exemple	    Nom	                Résultat
+
+$a == $b	Egal	            <span class="hljs-keyword">TRUE</span> si $a est égal à $b après le transtypage.
+$a === $b	Identique	        <span class="hljs-keyword">TRUE</span> si $a est égal à $b et qu ils sont de même type.
+$a != $b	Différent	        <span class="hljs-keyword">TRUE</span> si $a est différent de $b après le transtypage.
+$a &lt;&gt; $b	Différent	        <span class="hljs-keyword">TRUE</span> si $a est différent de $b après le transtypage.
+$a !== $b	Différent	        <span class="hljs-keyword">TRUE</span> si $a est différent de $b ou bien s ils ne sont pas du même type.
+
+$a &lt; $b	    Plus petit que	    <span class="hljs-keyword">TRUE</span> si $a est strictement plus petit que $b.
+$a &gt; $b	    Plus grand	        <span class="hljs-keyword">TRUE</span> si $a est strictement plus grand que $b.
+$a &lt;= $b	Inférieur ou égal	<span class="hljs-keyword">TRUE</span> si $a est plus petit ou égal à $b.
+$a &gt;= $b	Supérieur ou égal	<span class="hljs-keyword">TRUE</span> si $a est plus grand ou égal à $b.
+
+$a &lt;=&gt; $b	Combiné	Un entier inférieur, égal ou supérieur à zéro lorsque $a est inférieur, égal, ou supérieur à $b respectivement. Disponible à partir de PHP <span class="hljs-number">7.</span>
+</div></code></pre>
+<ul>
+<li>Opérateur ternaire (&quot;?:&quot;)<br></li>
+</ul>
+<p>L'opérateur ternaire affecte une valeure par défaut si la condition n'est pas respectée.</p>
+<pre><code class="language-php"><div><span class="hljs-meta">&lt;?php</span>
+$value = ($operator) ? (<span class="hljs-keyword">true</span> value) : (<span class="hljs-keyword">false</span> value)
+<span class="hljs-meta">?&gt;</span>
+</div></code></pre>
+<p>On peut aussi vérifier la valeure en cas de true pour savoir s'il faut l'assigner.</p>
+<pre><code class="language-php"><div><span class="hljs-meta">&lt;?php</span>
+$value = ($operator) ?: (<span class="hljs-keyword">false</span> value)
+<span class="hljs-meta">?&gt;</span>
+</div></code></pre>
+<ul>
+<li>If, Then, Else</li>
+</ul>
+<pre><code class="language-Php"><div><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-keyword">if</span> (expression) {
+    <span class="hljs-comment">//commandes</span>
+} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> {
+    <span class="hljs-comment">//commandes</span>
+}
+<span class="hljs-keyword">else</span> {
+    <span class="hljs-comment">//commandes</span>
+}
+
+<span class="hljs-meta">?&gt;</span>
+</div></code></pre>
+<p>Syntaxe alternative :</p>
+<pre><code class="language-Php"><div><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">if</span> (expression): <span class="hljs-meta">?&gt;</span>
+<span class="hljs-comment">//commandes</span>
+<span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">endif</span>; <span class="hljs-meta">?&gt;</span>
+</div></code></pre>
+<ul>
+<li>Switch</li>
+</ul>
+<pre><code class="language-PHP"><div><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-keyword">switch</span> (expression) {
+    <span class="hljs-keyword">case</span> expression:
+        <span class="hljs-comment">//commandes</span>
+        <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> expression
+        <span class="hljs-comment">//commandes</span>
+        <span class="hljs-keyword">break</span>;
+}
+<span class="hljs-meta">?&gt;</span>
+</div></code></pre>
+<h2 id="structures-de-boucles">Structures de boucles</h2>
+<hr>
+<ul>
+<li>Boucle While</li>
+</ul>
+<pre><code class="language-Php"><div><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-keyword">while</span> (expression) {
+    <span class="hljs-comment">//commandes</span>
+}
+<span class="hljs-meta">?&gt;</span>
+</div></code></pre>
+<p>Syntaxe alternative :</p>
+<pre><code class="language-Php"><div><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-keyword">while</span> (expression):
+<span class="hljs-comment">//commandes</span>
+<span class="hljs-keyword">endwhile</span>;
+<span class="hljs-meta">?&gt;</span>
+</div></code></pre>
+<ul>
+<li>Boucle do-While</li>
+</ul>
+<pre><code class="language-Php"><div><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-keyword">do</span> {
+    <span class="hljs-comment">//commandes</span>
+} <span class="hljs-keyword">while</span> (expression);
+<span class="hljs-meta">?&gt;</span>
+</div></code></pre>
+<ul>
+<li>Boucles définies<br></li>
+</ul>
+<p>les boucles &quot;for&quot; sont le plus souvent utilisées lorsque l’on sait combien de fois on souhaite exécuter le bout de code attaché à la boucle.</p>
+<pre><code class="language-php"><div><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-keyword">for</span> (expression1, expression2, expression3) {
+    <span class="hljs-comment">//commandes</span>
+}
+<span class="hljs-meta">?&gt;</span>
+</div></code></pre>
+<ul>
+<li>Boucles foreach<br></li>
+</ul>
+<p>La structure de langage foreach fournit une façon simple de parcourir des tableaux. foreach ne fonctionne que pour les tableaux et les objets, et émettra une erreur si vous tentez de l'utiliser sur une variable de type différent ou une variable non initialisée.</p>
+<pre><code class="language-php"><div><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-keyword">foreach</span> ($array_expression <span class="hljs-keyword">as</span> $value){
+    <span class="hljs-comment">//commandes</span>
+}
+<span class="hljs-meta">?&gt;</span>
+</div></code></pre>
+<p>La première forme passe en revue le tableau array_expression. À chaque itération, la valeur de l'élément courant est assignée à $value et le pointeur interne de tableau est avancé d'un élément (ce qui fait qu'à la prochaine itération, on accédera à l'élément suivant).</p>
+<pre><code class="language-php"><div><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-keyword">foreach</span> ($array_expression <span class="hljs-keyword">as</span> $key =&gt; $value){
+    <span class="hljs-comment">//commandes</span>
+}
+<span class="hljs-meta">?&gt;</span>
+</div></code></pre>
+<p>La seconde forme assignera en plus la clé de l'élément courant à la variable $key à chaque itération.</p>
+<p>Syntaxe alternative :</p>
+<pre><code class="language-php"><div><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">foreach</span>($array_expression <span class="hljs-keyword">as</span> $value): <span class="hljs-meta">?&gt;</span>
+    <span class="hljs-comment">//commandes</span>
+<span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">endforeach</span>; <span class="hljs-meta">?&gt;</span>
+</div></code></pre>
+<h2 id="structure-du-langage">Structure du langage</h2>
+<hr>
+<ul>
+<li>echo <br></li>
+</ul>
+<p>Affiche la valeure donnée en paramètre. Ne se comporte pas comme une fonction.</p>
+<pre><code class="language-php"><div><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-keyword">echo</span> <span class="hljs-string">"Votre texte"</span>;
+<span class="hljs-keyword">echo</span> $value;
+<span class="hljs-meta">?&gt;</span>
+</div></code></pre>
+<h2 id="require-et-include">Require et Include</h2>
+<hr>
+<ul>
+<li>Include</li>
+</ul>
+<pre><code class="language-php"><div><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-keyword">include</span> <span class="hljs-string">"nomFichier.php"</span>;
+<span class="hljs-meta">?&gt;</span>
+</div></code></pre>
+<p>L'instruction de langage include inclut et exécute le fichier spécifié en argument.</p>
+<ul>
+<li>Require</li>
+</ul>
+<pre><code class="language-php"><div><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-keyword">require</span> <span class="hljs-string">"nomFichier.php"</span>;
+<span class="hljs-meta">?&gt;</span>
+</div></code></pre>
+<p>Require est identique à include mis à part le fait que lorsqu'une erreur survient, il produit également une erreur fatale de niveau E_COMPILE_ERROR. En d'autres termes, il stoppera le script alors que include n'émettra qu'une alerte de niveau E_WARNING, ce qui permet au script de continuer.</p>
+<ul>
+<li>Require/Incule_once</li>
+</ul>
+<pre><code class="language-php"><div><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-keyword">require_once</span> <span class="hljs-string">"nomFichier.php"</span>;
+<span class="hljs-keyword">include_once</span> <span class="hljs-string">"nomFichier.php"</span>;
+<span class="hljs-meta">?&gt;</span>
+</div></code></pre>
+<p>L'instruction require/incule_once est identique à require mis à part que PHP vérifie si le fichier a déjà été inclus, et si c'est le cas, ne l'inclut pas une deuxième fois.</p>
+<h2 id="les-fonctions">Les fonctions</h2>
+<hr>
+<ul>
+<li>Appel de fonction</li>
+</ul>
+<pre><code class="language-php"><div><span class="hljs-meta">&lt;?php</span>
+nomFonction(paramètres);
+<span class="hljs-meta">?&gt;</span>
+</div></code></pre>
+<h3 id="fonctions-%c3%a0-retenir">Fonctions à retenir :</h3>
+<ul>
+<li>
+<p>print_r()</p>
+<pre><code class="language-php"><div><span class="hljs-meta">&lt;?php</span>
+print_r($expression);
+<span class="hljs-meta">?&gt;</span>
+</div></code></pre>
+<p>Affiche des informations à propos d'une variable, de manière à ce qu'elle soit lisible.</p>
+</li>
+<li>
+<p>isset()</p>
+<pre><code class="language-php"><div><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-keyword">isset</span>($expression);
+<span class="hljs-meta">?&gt;</span>
+</div></code></pre>
+<p>Détermine si une variable est déclarée et est différente de NULL.</p>
+</li>
+<li>
+<p>var_dump()</p>
+<pre><code class="language-php"><div><span class="hljs-meta">&lt;?php</span>
+var_dump($expression);
+<span class="hljs-meta">?&gt;</span>
+</div></code></pre>
+<p>var_dump() affiche les informations structurées d'une variable, y compris son type et sa valeur. Les tableaux et les objets sont explorés récursivement, avec des indentations, pour mettre en valeur leur structure.</p>
+</li>
+<li>
+<p>readline()</p>
+<pre><code class="language-php"><div><span class="hljs-meta">&lt;?php</span>
+readline(<span class="hljs-string">"Rentrez votre nom : "</span>);
+<span class="hljs-meta">?&gt;</span>    
+</div></code></pre>
+<p>Retourne une ligne entrée par l'utilisateur.</p>
+</li>
+</ul>
+<h3 id="fonctions-utilisateurs">Fonctions utilisateurs :</h3>
+<p>L'utilisateur peut définir une fonction pour la réutiliser plus tard.</p>
+<pre><code class="language-php"><div><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">nomFonction</span><span class="hljs-params">($expression1, $expression2, <span class="hljs-comment">/* ..., */</span> $expression_n)</span>
+</span>{
+    ...
+}
+<span class="hljs-meta">?&gt;</span>
+</div></code></pre>
+<h2 id="les-formulaires">Les formulaires</h2>
+<hr>
+<h3 id="en-html">En HTML ...</h3>
+<ul>
+<li>
+<p>&lt;form&gt;&lt;/form&gt; -&gt; Englobe un formulaire</p>
+<ul>
+<li><strong>Method</strong> -&gt; Définit la méthode HTTP qui sera utilisée.</li>
+<li><strong>Action</strong> -&gt;URL du programme qui traitera les informations soumises par le formulaire.</li>
+</ul>
+</li>
+<li>
+<p>&lt;label&gt;&lt;/label&gt; -&gt; légende pour un objet d'une interface utilisateur.</p>
+</li>
+<li>
+<p>&lt;input&gt; -&gt; Champ.</p>
+<ul>
+<li><strong>Type</strong> -&gt; Type de données attendues (Text, Password, Checkboxe, Radio, Submit, Hidden, Reset, File).</li>
+<li><strong>Name</strong> -&gt; Nomme le champ.</li>
+<li><strong>For</strong> -&gt; Spécifie l'id de l'élément de formulaire associé.</li>
+<li><strong>Value</strong> -&gt; Valeur par défaut.</li>
+<li><strong>Placeholder</strong> -&gt; Valeur temporaire (grisée).</li>
+<li><strong>Required</strong> -&gt; Le champ devient obligatoire.</li>
+</ul>
+</li>
+<li>
+<p>&lt;textarea&gt;&lt;/textarea&gt;-&gt; Zone de texte extensible.</p>
+</li>
+<li>
+<p>&lt;select&gt;&lt;/select&gt; -&gt; Liste déroulante.</p>
+<ul>
+<li>&lt;option&gt;&lt;/option&gt; -&gt; Option de la liste.</li>
+</ul>
+</li>
+</ul>
+<h3 id="m%c3%a9thodes-de-requ%c3%aate-http">Méthodes de requête HTTP ...</h3>
+<ul>
+<li>
+<p>HTTP définit un ensemble de méthodes de requête qui indiquent l'action que l'on souhaite réaliser sur la ressource indiquée.</p>
+</li>
+<li>
+<p>GET<br></p>
+<ul>
+<li>
+<p>La méthode GET demande une représentation de la ressource spécifiée. Les requêtes GET doivent uniquement être utilisées afin de récupérer des données.</p>
+</li>
+<li>
+<p>GET envoie les informations en les ajoutant à l'URL.</p>
+</li>
+<li>
+<p>GET aide pour envoyer des données non sensibles.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>POST<br></p>
+<ul>
+<li>La méthode POST est utilisée pour envoyer une entité vers la ressource indiquée. Cela  entraîne généralement un changement d'état ou des effets de bord sur le serveur.</li>
+<li>POST envoie les informations par le HTTP header.</li>
+<li>POST aide à envoyer des données sensibles.</li>
+</ul>
+</li>
+</ul>
+
+    </body>
+    </html>
