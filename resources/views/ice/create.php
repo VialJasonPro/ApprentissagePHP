@@ -1,56 +1,7 @@
 <?php
-require_once 'functions.php';
-/*
-Construire un formulaire avec GET,
-Utiliser des fonctions pour générer les champs (checkbox / radios)
-*/
-//Checkbox
-$parfums = [
-    "Fraise" => 4,
-    "Chocolat" => 5,
-    "Vanille" => 3
-];
-//Radio
-$cornets = [
-    "Pot" => 2,
-    "Cornet" => 3
-];
-// Checkbox
-$supplements = [
-    "Pépites de chocolat" => 1,
-    "Chantilliy" => 0.5
-];
-$title = "Composez votre glace";
-$ingredients = [];
-$total = 0;
-
-
-if (isset($_GET['parfum'])) {
-    foreach($_GET['parfum'] as $parfum) {
-        if(isset($parfums[$parfum])){
-            $ingredients[] = $parfum;
-            $total += $parfums[$parfum];
-        }
-    }
-}
-
-if (isset($_GET['supplement'])) {
-    foreach($_GET['supplement'] as $supplement) {
-        if(isset($supplements[$supplement])){
-            $ingredients[] = $supplement;
-            $total += $supplements[$supplement];
-        }
-    }
-}
-
-if (isset($_GET['cornet'])) {
-    $cornet = $_GET['cornet'];
-    if(isset($cornets[$cornet])){
-        $ingredients[] = $cornet;
-        $total += $cornets[$cornet];
-    }    
-}
-require 'header.php';
+require_once '..\controller\functions.php';
+require_once '..\controller\iceGenerator.php';
+ob_start();
 ?>
 
 <h1>Composez votre glace</h1>
@@ -72,7 +23,7 @@ require 'header.php';
         </div>
     </div>
     <div class="col-md-8">
-        <form action="/jeu.php" method="GET">
+        <form action="./iceGeneratorView.php" method="GET">
             <h2>Choisissez vos parfums</h2>
             <?php foreach($parfums as $parfum => $prix) : ?>
                 <div class="checkbox">
@@ -109,14 +60,6 @@ require 'header.php';
     </div>
 </div>
 
-<h2>$_GET</h2>
-<pre>
-    <?php var_dump($_GET) ?>
-</pre>
+<?php $content = ob_get_clean(); ?>
 
-<h2>$_POST</h2>
-<pre>
-    <?php var_dump($_POST) ?>
-</pre>
-
-<?php require 'footer.php' ?>
+<?php require('template\template.php'); ?>

@@ -26,6 +26,12 @@ $nomVariable = expression;
 <?= $nomVariable ?>
 ```
 - Les guillemets simples ( ' ' ) ne vont jamais interpeller les variables à l'intérieur. Ce qui est le cas des guillemets doubles ( " " ).
+
+- Démarrer le server PHP en local
+
+```bash
+php -S localhost:N°port
+```
 ## Tableaux
 ---
 - Créer un tableau

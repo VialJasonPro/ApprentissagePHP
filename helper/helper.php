@@ -64,33 +64,4 @@ function displayListElementsSelect(array $list, string $data){
 HTML;
     }    
 }
-
-/*function displayValue($value){
-    if (!empty($value)){
-        echo $value;
-    }
-    else {
-        echo "Entrée invalide.";
-    }
-}*/
-
-/*function displayAgeValue($value){
-    if (!empty($value)){
-        if ($value <= 0) {
-            echo "Entrée invalide.";            
-        }
-        else {
-            echo $value . " ans";
-        }
-    }
-    else {
-        echo "Entrée invalide.";
-    }
-}*/
-
-/*function displayArrayValue(array $list) {
-    foreach ($list as $value){
-        echo $value . " ; ";
-    }
-}*/
 ?>
